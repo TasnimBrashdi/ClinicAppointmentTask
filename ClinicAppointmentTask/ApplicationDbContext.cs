@@ -9,6 +9,14 @@ namespace ClinicAppointmentTask
         {
 
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+
+            modelBuilder.Entity<Clinic>()
+                        .HasIndex(c => c.Specialization)
+                        .IsUnique();
+
+        }
 
         public DbSet<Patient> Patients { get; set; }
         public DbSet<Clinic> Clinics { get; set; }
