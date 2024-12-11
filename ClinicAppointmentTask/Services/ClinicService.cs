@@ -46,7 +46,10 @@ namespace ClinicAppointmentTask.Services
                 {
                     throw new ArgumentException("Specialization  is required.");
                 }
-
+                if (clinic.NoOfSlots <=0)//Check If No Of Slots is lESS THAN ZERO
+                {
+                    throw new ArgumentException("No Of Slots must be greater than zero");
+                }
                 return _clinicRepository.Add(clinic);
             }
             catch (Exception ex)
