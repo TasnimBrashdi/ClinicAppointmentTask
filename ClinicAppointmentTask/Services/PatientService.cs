@@ -47,6 +47,10 @@ namespace ClinicAppointmentTask.Services
                 {
                     throw new ArgumentException("Patient name is required.");
                 }
+                if (patient.Age<=0)
+                {
+                    throw new ArgumentException("AGE Must be greater than zero.");
+                }
                 // Return list of patients
                 return _patientRepository.Add(patient);
             }
